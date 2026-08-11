@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Architect of Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;700&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="script.js" defer></script>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-tertiary-container selection:text-on-tertiary-container">
+  <nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-surface/10 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+    <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+      <div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary">
+        ARCHITECT.AI
+      </div>
+      <div class="hidden md:flex gap-8 items-center">
+        <a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md active:scale-95 transition-transform" href="#">Home</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#">Portfolio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#">About</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#">Contact</a>
+      </div>
+      <button class="hidden md:block bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary-container px-6 py-2 rounded-full font-body-md font-semibold hover:opacity-90 transition-opacity">
+        Connect
+      </button>
+      <button class="md:hidden text-primary" data-menu-button>
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full relative">
+    <div class="ambient-glow top-0 left-[-200px]"></div>
+    <div class="ambient-glow alt bottom-0 right-[-200px]"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-24">
+      <div class="lg:col-span-8 glass-card-elevated rounded-xl p-8 md:p-12 relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-br from-surface/50 to-surface-bright/20 z-0"></div>
+        <div class="relative z-10">
+          <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6">
+            Architect of <span class="gradient-text">Intelligence</span>
+          </h1>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">
+            Specializing in Information Systems Management, AI Agents, and custom LLM fine-tuning. Bridging the gap between complex neural architectures and scalable enterprise solutions.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <span class="font-label-caps text-label-caps border border-tertiary-container text-tertiary-container px-3 py-1 rounded bg-tertiary-container/10">LORA FINE-TUNING</span>
+            <span class="font-label-caps text-label-caps border border-primary-container text-primary-container px-3 py-1 rounded bg-primary-container/10">AI AGENTS</span>
+            <span class="font-label-caps text-label-caps border border-secondary-container text-secondary-container px-3 py-1 rounded bg-secondary-container/10">ISM ARCHITECTURE</span>
+          </div>
+          <div class="flex items-center gap-4 text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary">school</span>
+            <span class="font-code-sm text-code-sm">Tzu Chi University • ISM Program</span>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-4 glass-panel rounded-xl p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+            <h3 class="font-code-sm text-code-sm text-primary tracking-widest uppercase">System Status</h3>
+            <span class="material-symbols-outlined text-secondary text-sm">bolt</span>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
+                <span>Project: Neural_Agent_v2</span>
+                <span class="text-secondary">Training</span>
+              </div>
+              <div class="w-full bg-surface-container-highest rounded-full h-1">
+                <div class="bg-secondary h-1 rounded-full w-[78%] pulse-line"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
+                <span>Dataset Alignment</span>
+                <span class="text-tertiary-container">Validating</span>
+              </div>
+              <div class="w-full bg-surface-container-highest rounded-full h-1">
+                <div class="bg-tertiary-container h-1 rounded-full w-[45%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 pt-4 border-t border-white/10">
+          <button class="w-full glass-panel hover:bg-white/10 transition-colors py-3 rounded text-sm font-code-sm text-primary flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">terminal</span> View Logs
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-surface-container-lowest w-full py-12 border-t border-white/5">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto gap-gutter">
+      <div class="font-label-caps text-label-caps text-primary mb-4 md:mb-0">
+        © 2024 Architect of Intelligence. ISM & AI Specialist.
+      </div>
+      <div class="flex gap-6">
+        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">GitHub</a>
+        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
+        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">Research</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

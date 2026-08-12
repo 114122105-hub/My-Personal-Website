@@ -1,7 +1,23 @@
 /* Global Page Styles */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   background-color: #0b1326;
   color: #dae2fd;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .glass-panel {
@@ -26,6 +42,27 @@ body {
   background-clip: text;
 }
 
+.mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mobile-menu.is-open {
+  max-height: 320px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-nav-link.active {
+  color: #adc6ff;
+  background: rgba(173, 198, 255, 0.08);
+}
+
 .pulse-line {
   animation: pulse-glow 2s infinite;
 }
@@ -47,8 +84,8 @@ body {
 
 .ambient-glow {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: clamp(260px, 40vw, 600px);
+  height: clamp(260px, 40vw, 600px);
   background: radial-gradient(circle, rgba(160, 120, 255, 0.15) 0%, rgba(11, 19, 38, 0) 70%);
   border-radius: 50%;
   z-index: -1;
@@ -57,4 +94,73 @@ body {
 
 .ambient-glow.alt {
   background: radial-gradient(circle, rgba(77, 142, 255, 0.1) 0%, rgba(11, 19, 38, 0) 70%);
+}
+
+@media (max-width: 767px) {
+  body {
+    background-image: radial-gradient(circle at top, rgba(173, 198, 255, 0.08), transparent 45%);
+  }
+
+  nav {
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  nav .font-display-lg-mobile,
+  nav .text-display-lg-mobile {
+    font-size: clamp(1.15rem, 4vw, 1.7rem);
+    letter-spacing: -0.04em;
+  }
+
+  .glass-card-elevated,
+  .glass-panel {
+    border-radius: 1rem;
+  }
+
+  main {
+    padding-top: 6.5rem;
+    padding-bottom: 2rem;
+  }
+
+  section {
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .font-display-lg-mobile,
+  .text-display-lg-mobile {
+    word-break: break-word;
+  }
+
+  #home .glass-card-elevated,
+  #home .glass-panel,
+  #about .glass-card-elevated,
+  #about .glass-panel,
+  #contact .glass-card-elevated,
+  #portfolio article {
+    padding: 1.1rem 1rem;
+  }
+
+  #home .flex-wrap {
+    gap: 0.5rem;
+  }
+
+  #home .flex-wrap span,
+  #contact a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #contact a {
+    display: flex;
+    width: min(100%, 260px);
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  footer .flex {
+    gap: 0.75rem;
+  }
 }

@@ -9,27 +9,50 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;700&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="FoldText.css"/>
+  <link rel="stylesheet" href="CircularText.css"/>
   <link rel="stylesheet" href="style.css"/>
-  <script src="script.js" defer></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="script.js"></script>
 </head>
 <body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-tertiary-container selection:text-on-tertiary-container">
-  <nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-surface/10 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+  <nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-surface/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
     <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-      <div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary">
+      <a href="#home" class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary">
         ARCHITECT.AI
-      </div>
+      </a>
+
       <div class="hidden md:flex gap-8 items-center">
-        <a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md active:scale-95 transition-transform" href="#">Home</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#">Portfolio</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#">About</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#">Contact</a>
+        <a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md active:scale-95 transition-transform" href="#home">Home</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#portfolio">Portfolio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#about">About</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#hobbies">Hobbies</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded" href="#contact">Contact</a>
       </div>
-      <button class="hidden md:block bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary-container px-6 py-2 rounded-full font-body-md font-semibold hover:opacity-90 transition-opacity">
-        Connect
-      </button>
-      <button class="md:hidden text-primary" data-menu-button>
-        <span class="material-symbols-outlined text-3xl">menu</span>
-      </button>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary-container px-5 py-2 rounded-full font-body-md font-semibold hover:opacity-90 transition-opacity">
+          Connect
+        </a>
+        <button class="md:hidden text-primary p-2 rounded-full hover:bg-white/5 transition-colors" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu md:hidden px-margin-mobile pb-4" data-mobile-menu>
+      <div class="glass-panel rounded-2xl p-3 space-y-1">
+        <a class="mobile-nav-link block rounded-xl px-4 py-3 text-primary font-body-md" href="#home">Home</a>
+        <a class="mobile-nav-link block rounded-xl px-4 py-3 text-on-surface-variant font-body-md hover:text-primary hover:bg-white/5 transition-colors" href="#portfolio">Portfolio</a>
+        <a class="mobile-nav-link block rounded-xl px-4 py-3 text-on-surface-variant font-body-md hover:text-primary hover:bg-white/5 transition-colors" href="#about">About</a>
+        <a class="mobile-nav-link block rounded-xl px-4 py-3 text-on-surface-variant font-body-md hover:text-primary hover:bg-white/5 transition-colors" href="#hobbies">Hobbies</a>
+        <a class="mobile-nav-link block rounded-xl px-4 py-3 text-on-surface-variant font-body-md hover:text-primary hover:bg-white/5 transition-colors" href="#contact">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -37,13 +60,11 @@
     <div class="ambient-glow top-0 left-[-200px]"></div>
     <div class="ambient-glow alt bottom-0 right-[-200px]"></div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-24">
+    <section id="home" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-24 scroll-mt-28">
       <div class="lg:col-span-8 glass-card-elevated rounded-xl p-8 md:p-12 relative overflow-hidden group">
         <div class="absolute inset-0 bg-gradient-to-br from-surface/50 to-surface-bright/20 z-0"></div>
         <div class="relative z-10">
-          <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6">
-            Architect of <span class="gradient-text">Intelligence</span>
-          </h1>
+          <div id="hero-fold-text" class="hero-fold-wrap mb-6"></div>
           <p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">
             Specializing in Information Systems Management, AI Agents, and custom LLM fine-tuning. Bridging the gap between complex neural architectures and scalable enterprise solutions.
           </p>
@@ -54,52 +75,116 @@
           </div>
           <div class="flex items-center gap-4 text-on-surface-variant">
             <span class="material-symbols-outlined text-primary">school</span>
-            <span class="font-code-sm text-code-sm">Tzu Chi University � ISM Program</span>
+            <span class="font-code-sm text-code-sm">Tzu Chi University • ISM Program</span>
           </div>
         </div>
       </div>
-      <div class="lg:col-span-4 glass-panel rounded-xl p-6 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
-            <h3 class="font-code-sm text-code-sm text-primary tracking-widest uppercase">System Status</h3>
-            <span class="material-symbols-outlined text-secondary text-sm">bolt</span>
-          </div>
-          <div class="space-y-6">
-            <div>
-              <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
-                <span>Project: Neural_Agent_v2</span>
-                <span class="text-secondary">Training</span>
-              </div>
-              <div class="w-full bg-surface-container-highest rounded-full h-1">
-                <div class="bg-secondary h-1 rounded-full w-[78%] pulse-line"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
-                <span>Dataset Alignment</span>
-                <span class="text-tertiary-container">Validating</span>
-              </div>
-              <div class="w-full bg-surface-container-highest rounded-full h-1">
-                <div class="bg-tertiary-container h-1 rounded-full w-[45%]"></div>
-              </div>
-            </div>
-          </div>
+
+      <div class="lg:col-span-4 glass-panel rounded-xl p-3 flex flex-col justify-between overflow-hidden items-center gap-4">
+        <img src="zendaya.jpg" alt="Main profile portrait" class="w-full h-[420px] object-cover rounded-xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.35)]" />
+        <div id="circular-text-wrap" class="flex items-center justify-center"></div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="mb-24 scroll-mt-28">
+      <div class="mb-6">
+        <p class="font-label-caps text-label-caps text-primary mb-2">Portfolio</p>
+        <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Selected Systems</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <article class="glass-panel rounded-xl p-6">
+          <div class="material-symbols-outlined text-primary text-4xl mb-4">auto_awesome</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-3">AI Workflow Design</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Architecture for agent-based operations, human-in-the-loop decision support, and workflow automation.</p>
+        </article>
+        <article class="glass-panel rounded-xl p-6">
+          <div class="material-symbols-outlined text-secondary text-4xl mb-4">smart_toy</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-3">LLM Optimization</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Fine-tuning and retrieval strategies that reduce latency while improving relevance and accuracy.</p>
+        </article>
+        <article class="glass-panel rounded-xl p-6">
+          <div class="material-symbols-outlined text-tertiary text-4xl mb-4">insights</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Information Systems</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Data pipelines, dashboards, and governance-focused systems aligned with enterprise goals.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="mb-24 scroll-mt-28">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+        <div class="glass-card-elevated rounded-xl p-8 md:p-10">
+          <p class="font-label-caps text-label-caps text-primary mb-3">About</p>
+          <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-4">Systems thinking for intelligent scale.</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+            I help organizations connect technical capability with practical business execution. My focus is on building AI systems that are understandable, measurable, and ready for real-world adoption.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            From architecture strategy to deployment readiness, I design solutions that balance performance, governance, and usability across teams.
+          </p>
         </div>
-        <div class="mt-8 pt-4 border-t border-white/10">
-          <button class="w-full glass-panel hover:bg-white/10 transition-colors py-3 rounded text-sm font-code-sm text-primary flex items-center justify-center gap-2">
-            <span class="material-symbols-outlined text-[18px]">terminal</span> View Logs
-          </button>
+        <div class="glass-panel rounded-xl p-8 md:p-10">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+              <div class="font-display-lg-mobile text-display-lg-mobile text-primary">7+</div>
+              <div class="font-code-sm text-code-sm text-on-surface-variant">Years of practice</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+              <div class="font-display-lg-mobile text-display-lg-mobile text-secondary">18</div>
+              <div class="font-code-sm text-code-sm text-on-surface-variant">Project builds</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 col-span-2">
+              <div class="font-display-lg-mobile text-display-lg-mobile text-tertiary">AI + ISM</div>
+              <div class="font-code-sm text-code-sm text-on-surface-variant">Strategy, implementation, and operational design</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section id="hobbies" class="mb-24 scroll-mt-28">
+      <div class="mb-6">
+        <p class="font-label-caps text-label-caps text-primary mb-2">Hobbies</p>
+        <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Life beyond the system.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <article class="glass-panel rounded-xl p-6">
+          <div class="material-symbols-outlined text-primary text-4xl mb-4">music_note</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Listening to music</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">I enjoy music as a source of focus, energy, and inspiration. It helps me recharge and keeps my creativity flowing.</p>
+        </article>
+        <article class="glass-panel rounded-xl p-6">
+          <div class="material-symbols-outlined text-secondary text-4xl mb-4">fitness_center</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Working out</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Regular workouts help me stay disciplined, healthy, and mentally sharp. It’s a big part of my personal routine.</p>
+        </article>
+        <article class="glass-panel rounded-xl p-6">
+          <div class="material-symbols-outlined text-tertiary text-4xl mb-4">school</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Continuous learning</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">I’m always learning and growing, whether it’s through new skills, ideas, or personal development that helps me improve every day.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="scroll-mt-28">
+      <div class="glass-card-elevated rounded-xl p-8 md:p-10 text-center">
+        <p class="font-label-caps text-label-caps text-primary mb-3">Contact</p>
+        <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-4">Let’s build what’s next.</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl mx-auto">
+          For AI architecture, systems strategy, or LLM deployment consulting, I’m available to discuss the right next step for your product or operations.
+        </p>
+        <a href="mailto:hello@architectai.dev" class="inline-flex items-center justify-center bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary-container px-6 py-3 rounded-full font-body-md font-semibold hover:opacity-90 transition-opacity">
+          hello@architectai.dev
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer class="bg-surface-container-lowest w-full py-12 border-t border-white/5">
     <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto gap-gutter">
       <div class="font-label-caps text-label-caps text-primary mb-4 md:mb-0">
-        � 2024 Architect of Intelligence. ISM & AI Specialist.
+        © 2024 Architect of Intelligence. ISM & AI Specialist.
       </div>
-      <div class="flex gap-6">
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6">
         <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">GitHub</a>
         <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
         <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
@@ -107,5 +192,58 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const wrap = document.getElementById('circular-text-wrap');
+      if (!wrap) return;
+
+      const text = 'AI*SYSTEMS*ARCHITECT*';
+      const letters = Array.from(text);
+      const ring = document.createElement('div');
+      ring.className = 'circular-text';
+
+      letters.forEach((letter, index) => {
+        const span = document.createElement('span');
+        const rotationDeg = (360 / letters.length) * index;
+        const factor = Math.PI / letters.length;
+        const x = factor * index;
+        const y = factor * index;
+        const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
+        span.textContent = letter;
+        span.style.transform = transform;
+        span.style.WebkitTransform = transform;
+        ring.appendChild(span);
+      });
+
+      wrap.appendChild(ring);
+
+      ring.animate(
+        [
+          { transform: 'rotate(0deg) scale(1)' },
+          { transform: 'rotate(360deg) scale(1)' }
+        ],
+        {
+          duration: 20000,
+          easing: 'linear',
+          iterations: Infinity
+        }
+      );
+
+      ring.addEventListener('mouseenter', function () {
+        ring.animate(
+          [
+            { transform: 'rotate(0deg) scale(1)' },
+            { transform: 'rotate(360deg) scale(1.05)' }
+          ],
+          {
+            duration: 5000,
+            easing: 'linear',
+            iterations: Infinity
+          }
+        );
+      });
+    });
+  </script>
 </body>
 </html>

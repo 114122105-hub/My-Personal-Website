@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const root = ReactDOM.createRoot(heroRoot);
     root.render(
       React.createElement(FoldText, {
-        text: 'Architect of Intelligence',
+        text: 'ISM Student',
         splitBy: 'char',
         hinge: 'top',
         trigger: 'scroll',
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const circularTextWrap = document.getElementById('circular-text-wrap');
   if (circularTextWrap && window.Motion) {
-    const text = 'AI*SYSTEMS*ARCHITECT*';
+    const text = 'ISM*STUDENT*LEARNING*';
     const letters = Array.from(text);
 
     const circular = document.createElement('div');

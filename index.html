@@ -176,74 +176,479 @@
           hello@architectai.dev
         </a>
       </div>
-    </section>
-  </main>
+    <!DOCTYPE html>
+    <html class="dark" lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <footer class="bg-surface-container-lowest w-full py-12 border-t border-white/5">
-    <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto gap-gutter">
-      <div class="font-label-caps text-label-caps text-primary mb-4 md:mb-0">
-        © 2024 Architect of Intelligence. ISM & AI Specialist.
-      </div>
-      <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">GitHub</a>
-        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
-        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
-        <a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="#">Research</a>
-      </div>
-    </div>
-  </footer>
+      <title>Student Portfolio | Tzu Chi University</title>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const wrap = document.getElementById('circular-text-wrap');
-      if (!wrap) return;
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-      const text = 'AI*SYSTEMS*ARCHITECT*';
-      const letters = Array.from(text);
-      const ring = document.createElement('div');
-      ring.className = 'circular-text';
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+      />
 
-      letters.forEach((letter, index) => {
-        const span = document.createElement('span');
-        const rotationDeg = (360 / letters.length) * index;
-        const factor = Math.PI / letters.length;
-        const x = factor * index;
-        const y = factor * index;
-        const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
-        span.textContent = letter;
-        span.style.transform = transform;
-        span.style.WebkitTransform = transform;
-        ring.appendChild(span);
-      });
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 
-      wrap.appendChild(ring);
+      <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@500;700&family=Hanken+Grotesk:wght@400;600;800&display=swap"
+        rel="stylesheet"
+      />
 
-      ring.animate(
-        [
-          { transform: 'rotate(0deg) scale(1)' },
-          { transform: 'rotate(360deg) scale(1)' }
-        ],
-        {
-          duration: 20000,
-          easing: 'linear',
-          iterations: Infinity
-        }
-      );
+      <link rel="stylesheet" href="style.css"/>
+      <script src="script.js" defer></script>
+    </head>
 
-      ring.addEventListener('mouseenter', function () {
-        ring.animate(
-          [
-            { transform: 'rotate(0deg) scale(1)' },
-            { transform: 'rotate(360deg) scale(1.05)' }
-          ],
-          {
-            duration: 5000,
-            easing: 'linear',
-            iterations: Infinity
-          }
-        );
-      });
-    });
-  </script>
-</body>
-</html>
+    <body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-tertiary-container selection:text-on-tertiary-container">
+
+      <!-- Navigation -->
+      <nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-surface/10 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+
+        <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+
+          <!-- Logo -->
+          <div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary">
+            STUDENT.PORTFOLIO
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex gap-8 items-center">
+
+            <a
+              class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md active:scale-95 transition-transform"
+              href="#home"
+            >
+              Home
+            </a>
+
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded"
+              href="#education"
+            >
+              Education
+            </a>
+
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded"
+              href="#background"
+            >
+              Background
+            </a>
+
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 font-body-md text-body-md px-2 py-1 rounded"
+              href="#contact"
+            >
+              Contact
+            </a>
+
+          </div>
+
+          <!-- Connect Button -->
+          <a
+            href="#contact"
+            class="hidden md:block bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary-container px-6 py-2 rounded-full font-body-md font-semibold hover:opacity-90 transition-opacity"
+          >
+            Connect
+          </a>
+
+          <!-- Mobile Menu -->
+          <button class="md:hidden text-primary" data-menu-button aria-label="Open menu">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </button>
+
+        </div>
+      </nav>
+
+
+      <!-- Main Content -->
+      <main
+        id="home"
+        class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full relative"
+      >
+
+        <div class="ambient-glow top-0 left-[-200px]"></div>
+        <div class="ambient-glow alt bottom-0 right-[-200px]"></div>
+
+
+        <!-- Hero Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-24">
+
+          <!-- Introduction -->
+          <div
+            class="lg:col-span-8 glass-card-elevated rounded-xl p-8 md:p-12 relative overflow-hidden group"
+            id="education"
+          >
+
+            <div class="absolute inset-0 bg-gradient-to-br from-surface/50 to-surface-bright/20 z-0"></div>
+
+            <div class="relative z-10">
+
+              <p class="font-label-caps text-label-caps text-secondary mb-4">
+                FIRST-YEAR UNDERGRADUATE
+              </p>
+
+              <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6">
+                Building My
+                <span class="gradient-text">Future</span>
+              </h1>
+
+              <p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">
+                I am a first-year undergraduate student at Tzu Chi University,
+                developing my knowledge and skills across technology, information
+                systems, and business. Before starting my current undergraduate
+                studies, I completed one year of undergraduate-level study in
+                Economics, giving me an early foundation in economic thinking,
+                analysis, and problem-solving.
+              </p>
+
+
+              <!-- Skills / Interests -->
+              <div class="flex flex-wrap gap-4 mb-8">
+
+                <span class="font-label-caps text-label-caps border border-tertiary-container text-tertiary-container px-3 py-1 rounded bg-tertiary-container/10">
+                  INFORMATION SYSTEMS
+                </span>
+
+                <span class="font-label-caps text-label-caps border border-primary-container text-primary-container px-3 py-1 rounded bg-primary-container/10">
+                  ECONOMICS
+                </span>
+
+                <span class="font-label-caps text-label-caps border border-secondary-container text-secondary-container px-3 py-1 rounded bg-secondary-container/10">
+                  TECHNOLOGY
+                </span>
+
+              </div>
+
+
+              <!-- University -->
+              <div class="flex items-center gap-4 text-on-surface-variant">
+
+                <span class="material-symbols-outlined text-primary">
+                  school
+                </span>
+
+                <span class="font-code-sm text-code-sm">
+                  Tzu Chi University · First-Year Undergraduate
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Academic Profile -->
+          <div
+            class="lg:col-span-4 glass-panel rounded-xl p-6 flex flex-col justify-between"
+          >
+
+            <div>
+
+              <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+
+                <h3 class="font-code-sm text-code-sm text-primary tracking-widest uppercase">
+                  Academic Profile
+                </h3>
+
+                <span class="material-symbols-outlined text-secondary text-sm">
+                  school
+                </span>
+
+              </div>
+
+
+              <div class="space-y-6">
+
+                <!-- Current Education -->
+                <div>
+
+                  <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
+
+                    <span>Current Study</span>
+
+                    <span class="text-secondary">
+                      Year 1
+                    </span>
+
+                  </div>
+
+                  <div class="w-full bg-surface-container-highest rounded-full h-1">
+
+                    <div
+                      class="bg-secondary h-1 rounded-full w-[25%]"
+                    ></div>
+
+                  </div>
+
+                  <p class="text-xs text-on-surface-variant mt-2">
+                    Undergraduate student at Tzu Chi University
+                  </p>
+
+                </div>
+
+
+                <!-- Economics Background -->
+                <div>
+
+                  <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
+
+                    <span>Economics Background</span>
+
+                    <span class="text-tertiary-container">
+                      1 Year
+                    </span>
+
+                  </div>
+
+                  <div class="w-full bg-surface-container-highest rounded-full h-1">
+
+                    <div
+                      class="bg-tertiary-container h-1 rounded-full w-[100%]"
+                    ></div>
+
+                  </div>
+
+                  <p class="text-xs text-on-surface-variant mt-2">
+                    One year of undergraduate-level economics study
+                  </p>
+
+                </div>
+
+
+                <!-- Learning Focus -->
+                <div>
+
+                  <div class="flex justify-between text-xs mb-2 font-code-sm text-on-surface-variant">
+
+                    <span>Learning Focus</span>
+
+                    <span class="text-primary">
+                      Developing
+                    </span>
+
+                  </div>
+
+                  <div class="w-full bg-surface-container-highest rounded-full h-1">
+
+                    <div
+                      class="bg-primary h-1 rounded-full w-[50%]"
+                    ></div>
+
+                  </div>
+
+                  <p class="text-xs text-on-surface-variant mt-2">
+                    Building academic and technical skills
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Profile Button -->
+            <div class="mt-8 pt-4 border-t border-white/10">
+
+              <a
+                href="#background"
+                class="w-full glass-panel hover:bg-white/10 transition-colors py-3 rounded text-sm font-code-sm text-primary flex items-center justify-center gap-2"
+              >
+
+                <span class="material-symbols-outlined text-[18px]">
+                  person
+                </span>
+
+                View My Background
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Background Section -->
+        <section
+          id="background"
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24"
+        >
+
+          <!-- Economics -->
+          <div class="glass-panel rounded-xl p-8">
+
+            <div class="flex items-center gap-3 mb-6">
+
+              <span class="material-symbols-outlined text-tertiary-container">
+                account_balance
+              </span>
+
+              <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">
+                Economics
+              </h2>
+
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              I have one year of undergraduate-level experience studying
+              Economics. This background helped me develop an understanding of
+              economic principles, analytical thinking, and how to approach
+              problems from a structured perspective.
+            </p>
+
+          </div>
+
+
+          <!-- Current Studies -->
+          <div class="glass-panel rounded-xl p-8">
+
+            <div class="flex items-center gap-3 mb-6">
+
+              <span class="material-symbols-outlined text-primary">
+                school
+              </span>
+
+              <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">
+                Tzu Chi University
+              </h2>
+
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              I am currently a first-year undergraduate student at Tzu Chi
+              University. I am expanding my academic foundation while exploring
+              information systems, technology, and other areas that will shape
+              my future career.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- Future Goals -->
+        <section class="glass-card-elevated rounded-xl p-8 md:p-12 mb-24">
+
+          <div class="max-w-3xl">
+
+            <p class="font-label-caps text-label-caps text-secondary mb-4">
+              FUTURE DIRECTION
+            </p>
+
+            <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6">
+              Learning, Exploring,
+              <span class="gradient-text">Growing.</span>
+            </h2>
+
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              My goal is to combine my academic background in Economics with
+              knowledge in information systems and technology. As I progress
+              through university, I want to develop practical skills, work on
+              meaningful projects, and explore how technology can be used to
+              solve real-world problems.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- Contact -->
+        <section
+          id="contact"
+          class="glass-panel rounded-xl p-8 text-center"
+        >
+
+          <span class="material-symbols-outlined text-primary text-4xl mb-4">
+            mail
+          </span>
+
+          <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-4">
+            Let's Connect
+          </h2>
+
+          <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Interested in connecting, collaborating, or learning more about my
+            academic journey?
+          </p>
+
+          <a
+            href="mailto:your-email@example.com"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary-container px-6 py-3 rounded-full font-body-md font-semibold hover:opacity-90 transition-opacity"
+          >
+
+            <span class="material-symbols-outlined">
+              send
+            </span>
+
+            Contact Me
+
+          </a>
+
+        </section>
+
+      </main>
+
+
+      <!-- Footer -->
+      <footer
+        class="bg-surface-container-lowest w-full py-12 border-t border-white/5"
+      >
+
+        <div
+          class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto gap-gutter"
+        >
+
+          <div class="font-label-caps text-label-caps text-primary mb-4 md:mb-0">
+
+            © 2026 Student Portfolio.
+            Tzu Chi University Undergraduate.
+
+          </div>
+
+
+          <div class="flex gap-6">
+
+            <a
+              class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100"
+              href="#"
+            >
+              GitHub
+            </a>
+
+            <a
+              class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100"
+              href="#"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100"
+              href="#background"
+            >
+              Background
+            </a>
+
+            <a
+              class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors opacity-80 hover:opacity-100"
+              href="#contact"
+            >
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+    </body>
+    </html>
